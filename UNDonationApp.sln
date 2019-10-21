@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNDonationApp", "UNDonationApp\UNDonationApp.csproj", "{B78CEC3D-43B5-4A2F-B16D-DB74A6C5CA55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B78CEC3D-43B5-4A2F-B16D-DB74A6C5CA55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78CEC3D-43B5-4A2F-B16D-DB74A6C5CA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78CEC3D-43B5-4A2F-B16D-DB74A6C5CA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78CEC3D-43B5-4A2F-B16D-DB74A6C5CA55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB95E3F7-9177-4EEB-B17C-FB26941704EA}
+	EndGlobalSection
+EndGlobal

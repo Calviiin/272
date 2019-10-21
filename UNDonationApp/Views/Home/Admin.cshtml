@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h1>Welcome System Admin  @ViewBag.Name :)</h1>
+
+<div>
+    <div class="container" style="width:100% ; margin-left:30px">
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Campaigns")'" style="border-radius:15px">
+                Total Campaigns
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Campaigns
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Campaign_Status")'" style="border-radius:15px">
+                Campaign Statuses
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Status
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Cities")'" style="border-radius:15px">
+                Total Cities
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Cities
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Doners")'" style="border-radius:15px">
+                Total Donors
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Donors
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Organisations")'" style="border-radius:15px">
+                Total Organisations
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Organisations
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Payments")'" style="border-radius:15px">
+                Total Payments
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Payments
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Payment_Method")'" style="border-radius:15px">
+                Total Payment Methods
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.PaymentMethods
+            </button>
+        </div>
+        <div class="jumbotron btn" style="width:150px;height:300px;background-color:rgb(37,37,38) ;float:left; margin-left:100px">
+            <i class="fa fa-users" style="font-size: 80px;color: rgb(169,8,8);margin-left:-10px">
+
+            </i>
+            <br />
+            <br />
+            <button type="submit" class="btn btn-dark" onclick="window.location.href = '@Url.Action("Index","Provinces")'" style="border-radius:15px">
+                Total Provinces
+            </button>
+            <br />
+            <p></p>
+            <button class="btn btn-outline-danger btn-lg" type="button" style=" border-radius:20px ">
+                @ViewBag.Provinces
+            </button>
+        </div>
+    </div>
+</div>
