@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="713f439d12744bfaa02d99fee1e8e5ff" Name="Diagram1">
+        <EntityTypeShape EntityType="DonationsModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.AspNetRole" Width="1.5" PointX="10.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.AspNetUserClaim" Width="1.5" PointX="15.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.AspNetUserLogin" Width="1.5" PointX="15.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.AspNetUser" Width="1.5" PointX="13" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Campaign" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Campaign_Status" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Card" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.City" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Doner" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.EFT" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Organiation" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Payment" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Payment_Method" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Paypal" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DonationsModel.Province" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="DonationsModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Campaign__Campai__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Organiati__Campa__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Payment__Campaig__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_Card_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_EFT_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_Paypal_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_Card_Doner" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_Card_Payment_Method" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__City__Province_I__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Doner__City_ID__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Organiati__City___6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Payment__Doner_I__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_EFT_Doner" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_Paypal_Doner" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_EFT_Payment_Method" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK__Payment__Payment__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.FK_Paypal_Payment_Method" ManuallyRouted="false" />
+        <AssociationConnector Association="DonationsModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

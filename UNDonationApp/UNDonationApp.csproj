@@ -49,6 +49,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -174,8 +176,71 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Campaign.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Campaign_Status.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Card.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\City.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonationsDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonationsDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonationsDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonationsDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonationsDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Doner.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EFT.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Organiation.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment_Method.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paypal.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Province.cs">
+      <DependentUpon>DonationsDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -188,8 +253,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DonationsDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonationsDB.edmx</DependentUpon>
+      <LastGenOutput>DonationsDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DonationsDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DonationsDB.edmx</DependentUpon>
+      <LastGenOutput>DonationsDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\DonationsDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DonationsDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DonationsDB.edmx.diagram">
+      <DependentUpon>DonationsDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -240,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -253,6 +336,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

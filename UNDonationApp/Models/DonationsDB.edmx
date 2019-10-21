@@ -1,0 +1,1306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DonationsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="Campaign_ID" />
+          </Key>
+          <Property Name="Campaign_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Campaign_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Campaign_Description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Campaign_Start_Date" Type="datetime" Nullable="false" />
+          <Property Name="Campaign_End_Date" Type="datetime" Nullable="false" />
+          <Property Name="Campaign_Goal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Campaign_Status_ID" Type="int" />
+          <Property Name="Amount_Received" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Campaign_Status">
+          <Key>
+            <PropertyRef Name="Campaign_Status_ID" />
+          </Key>
+          <Property Name="Campaign_Status_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Campaign_Status_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="Card_ID" />
+          </Key>
+          <Property Name="Card_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Card_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Card_Holder" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CVV" Type="int" Nullable="false" />
+          <Property Name="Donor_ID" Type="int" Nullable="false" />
+          <Property Name="Campaign_ID" Type="int" Nullable="false" />
+          <Property Name="Payment_Method_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_ID" />
+          </Key>
+          <Property Name="City_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Province_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Doner">
+          <Key>
+            <PropertyRef Name="Doner_ID" />
+          </Key>
+          <Property Name="Doner_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doner_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Doner_Surname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Doner_Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Doner_Cell" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Doner_Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="City_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EFT">
+          <Key>
+            <PropertyRef Name="EFT_ID" />
+          </Key>
+          <Property Name="EFT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Payment_Date" Type="date" Nullable="false" />
+          <Property Name="Payment_Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Payment_Method_ID" Type="int" Nullable="false" />
+          <Property Name="Donor_ID" Type="int" Nullable="false" />
+          <Property Name="Campaign_ID" Type="int" Nullable="false" />
+          <Property Name="Bank_Acc_Number" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Bank_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organiation">
+          <Key>
+            <PropertyRef Name="Organisation_ID" />
+          </Key>
+          <Property Name="Organisation_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Organisation_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Organisation_Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Campaign_ID" Type="int" />
+          <Property Name="City_ID" Type="int" />
+          <Property Name="NGO_Num" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Payment_Date" Type="datetime" Nullable="false" />
+          <Property Name="Payment_Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Doner_ID" Type="int" />
+          <Property Name="Campaign_ID" Type="int" />
+          <Property Name="Payment_Method_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Payment_Method">
+          <Key>
+            <PropertyRef Name="Payment_Method_ID" />
+          </Key>
+          <Property Name="Payment_Method_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Payment_Method_Description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paypal">
+          <Key>
+            <PropertyRef Name="Paypal_ID" />
+          </Key>
+          <Property Name="Paypal_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaypalID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Payment_Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Payment_Date" Type="date" Nullable="false" />
+          <Property Name="Campaign_ID" Type="int" Nullable="false" />
+          <Property Name="Payment_Method_ID" Type="int" Nullable="false" />
+          <Property Name="Donor_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Province_ID" />
+          </Key>
+          <Property Name="Province_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Province_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Campaign__Campai__59FA5E80">
+          <End Role="Campaign_Status" Type="Self.Campaign_Status" Multiplicity="0..1" />
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign_Status">
+              <PropertyRef Name="Campaign_Status_ID" />
+            </Principal>
+            <Dependent Role="Campaign">
+              <PropertyRef Name="Campaign_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__Province_I__5DCAEF64">
+          <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Province_ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="Province_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doner__City_ID__5EBF139D">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Doner" Type="Self.Doner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="Doner">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organiati__Campa__628FA481">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="Organiation" Type="Self.Organiation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Organiation">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organiati__City___6383C8BA">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Organiation" Type="Self.Organiation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="Organiation">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Campaig__656C112C">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Doner_I__6477ECF3">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Doner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Payment__66603565">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_Doner">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFT_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="EFT" Type="Self.EFT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="EFT">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFT_Doner">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="1" />
+          <End Role="EFT" Type="Self.EFT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="EFT">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFT_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
+          <End Role="EFT" Type="Self.EFT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="EFT">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paypal_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="Paypal" Type="Self.Paypal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Paypal">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paypal_Doner">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="1" />
+          <End Role="Paypal" Type="Self.Paypal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="Paypal">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paypal_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
+          <End Role="Paypal" Type="Self.Paypal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="Paypal">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DonationsModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Campaign_Status" EntityType="Self.Campaign_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doner" EntityType="Self.Doner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EFT" EntityType="Self.EFT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organiation" EntityType="Self.Organiation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment_Method" EntityType="Self.Payment_Method" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paypal" EntityType="Self.Paypal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Campaign__Campai__59FA5E80" Association="Self.FK__Campaign__Campai__59FA5E80">
+            <End Role="Campaign_Status" EntitySet="Campaign_Status" />
+            <End Role="Campaign" EntitySet="Campaign" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__Province_I__5DCAEF64" Association="Self.FK__City__Province_I__5DCAEF64">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doner__City_ID__5EBF139D" Association="Self.FK__Doner__City_ID__5EBF139D">
+            <End Role="City" EntitySet="City" />
+            <End Role="Doner" EntitySet="Doner" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organiati__Campa__628FA481" Association="Self.FK__Organiati__Campa__628FA481">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="Organiation" EntitySet="Organiation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organiati__City___6383C8BA" Association="Self.FK__Organiati__City___6383C8BA">
+            <End Role="City" EntitySet="City" />
+            <End Role="Organiation" EntitySet="Organiation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Campaig__656C112C" Association="Self.FK__Payment__Campaig__656C112C">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Doner_I__6477ECF3" Association="Self.FK__Payment__Doner_I__6477ECF3">
+            <End Role="Doner" EntitySet="Doner" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Payment__66603565" Association="Self.FK__Payment__Payment__66603565">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_Campaign" Association="Self.FK_Card_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_Doner" Association="Self.FK_Card_Doner">
+            <End Role="Doner" EntitySet="Doner" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_Payment_Method" Association="Self.FK_Card_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFT_Campaign" Association="Self.FK_EFT_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="EFT" EntitySet="EFT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFT_Doner" Association="Self.FK_EFT_Doner">
+            <End Role="Doner" EntitySet="Doner" />
+            <End Role="EFT" EntitySet="EFT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFT_Payment_Method" Association="Self.FK_EFT_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="EFT" EntitySet="EFT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paypal_Campaign" Association="Self.FK_Paypal_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="Paypal" EntitySet="Paypal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paypal_Doner" Association="Self.FK_Paypal_Doner">
+            <End Role="Doner" EntitySet="Doner" />
+            <End Role="Paypal" EntitySet="Paypal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paypal_Payment_Method" Association="Self.FK_Paypal_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="Paypal" EntitySet="Paypal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DonationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="Campaign_ID" />
+          </Key>
+          <Property Name="Campaign_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Campaign_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Campaign_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Campaign_Start_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Campaign_End_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Campaign_Goal" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Campaign_Status_ID" Type="Int32" />
+          <Property Name="Amount_Received" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Campaign_Status" Relationship="Self.FK__Campaign__Campai__59FA5E80" FromRole="Campaign" ToRole="Campaign_Status" />
+          <NavigationProperty Name="Organiations" Relationship="Self.FK__Organiati__Campa__628FA481" FromRole="Campaign" ToRole="Organiation" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Campaig__656C112C" FromRole="Campaign" ToRole="Payment" />
+          <NavigationProperty Name="Cards" Relationship="Self.FK_Card_Campaign" FromRole="Campaign" ToRole="Card" />
+          <NavigationProperty Name="EFTs" Relationship="Self.FK_EFT_Campaign" FromRole="Campaign" ToRole="EFT" />
+          <NavigationProperty Name="Paypals" Relationship="Self.FK_Paypal_Campaign" FromRole="Campaign" ToRole="Paypal" />
+        </EntityType>
+        <EntityType Name="Campaign_Status">
+          <Key>
+            <PropertyRef Name="Campaign_Status_ID" />
+          </Key>
+          <Property Name="Campaign_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Campaign_Status_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Campaigns" Relationship="Self.FK__Campaign__Campai__59FA5E80" FromRole="Campaign_Status" ToRole="Campaign" />
+        </EntityType>
+        <EntityType Name="Card">
+          <Key>
+            <PropertyRef Name="Card_ID" />
+          </Key>
+          <Property Name="Card_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Card_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Card_Holder" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CVV" Type="Int32" Nullable="false" />
+          <Property Name="Donor_ID" Type="Int32" Nullable="false" />
+          <Property Name="Campaign_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Method_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Campaign" Relationship="Self.FK_Card_Campaign" FromRole="Card" ToRole="Campaign" />
+          <NavigationProperty Name="Doner" Relationship="Self.FK_Card_Doner" FromRole="Card" ToRole="Doner" />
+          <NavigationProperty Name="Payment_Method" Relationship="Self.FK_Card_Payment_Method" FromRole="Card" ToRole="Payment_Method" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="City_ID" />
+          </Key>
+          <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Province_ID" Type="Int32" />
+          <NavigationProperty Name="Province" Relationship="Self.FK__City__Province_I__5DCAEF64" FromRole="City" ToRole="Province" />
+          <NavigationProperty Name="Doners" Relationship="Self.FK__Doner__City_ID__5EBF139D" FromRole="City" ToRole="Doner" />
+          <NavigationProperty Name="Organiations" Relationship="Self.FK__Organiati__City___6383C8BA" FromRole="City" ToRole="Organiation" />
+        </EntityType>
+        <EntityType Name="Doner">
+          <Key>
+            <PropertyRef Name="Doner_ID" />
+          </Key>
+          <Property Name="Doner_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doner_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Doner_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Doner_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Doner_Cell" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Doner_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City_ID" Type="Int32" />
+          <NavigationProperty Name="Cards" Relationship="Self.FK_Card_Doner" FromRole="Doner" ToRole="Card" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Doner__City_ID__5EBF139D" FromRole="Doner" ToRole="City" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Doner_I__6477ECF3" FromRole="Doner" ToRole="Payment" />
+          <NavigationProperty Name="EFTs" Relationship="Self.FK_EFT_Doner" FromRole="Doner" ToRole="EFT" />
+          <NavigationProperty Name="Paypals" Relationship="Self.FK_Paypal_Doner" FromRole="Doner" ToRole="Paypal" />
+        </EntityType>
+        <EntityType Name="EFT">
+          <Key>
+            <PropertyRef Name="EFT_ID" />
+          </Key>
+          <Property Name="EFT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Payment_Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Payment_Method_ID" Type="Int32" Nullable="false" />
+          <Property Name="Donor_ID" Type="Int32" Nullable="false" />
+          <Property Name="Campaign_ID" Type="Int32" Nullable="false" />
+          <Property Name="Bank_Acc_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bank_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Campaign" Relationship="Self.FK_EFT_Campaign" FromRole="EFT" ToRole="Campaign" />
+          <NavigationProperty Name="Doner" Relationship="Self.FK_EFT_Doner" FromRole="EFT" ToRole="Doner" />
+          <NavigationProperty Name="Payment_Method" Relationship="Self.FK_EFT_Payment_Method" FromRole="EFT" ToRole="Payment_Method" />
+        </EntityType>
+        <EntityType Name="Organiation">
+          <Key>
+            <PropertyRef Name="Organisation_ID" />
+          </Key>
+          <Property Name="Organisation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Organisation_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Organisation_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Campaign_ID" Type="Int32" />
+          <Property Name="City_ID" Type="Int32" />
+          <Property Name="NGO_Num" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Campaign" Relationship="Self.FK__Organiati__Campa__628FA481" FromRole="Organiation" ToRole="Campaign" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Organiati__City___6383C8BA" FromRole="Organiation" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Payment_ID" />
+          </Key>
+          <Property Name="Payment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Payment_Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Doner_ID" Type="Int32" />
+          <Property Name="Campaign_ID" Type="Int32" />
+          <Property Name="Payment_Method_ID" Type="Int32" />
+          <NavigationProperty Name="Campaign" Relationship="Self.FK__Payment__Campaig__656C112C" FromRole="Payment" ToRole="Campaign" />
+          <NavigationProperty Name="Doner" Relationship="Self.FK__Payment__Doner_I__6477ECF3" FromRole="Payment" ToRole="Doner" />
+          <NavigationProperty Name="Payment_Method" Relationship="Self.FK__Payment__Payment__66603565" FromRole="Payment" ToRole="Payment_Method" />
+        </EntityType>
+        <EntityType Name="Payment_Method">
+          <Key>
+            <PropertyRef Name="Payment_Method_ID" />
+          </Key>
+          <Property Name="Payment_Method_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Payment_Method_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cards" Relationship="Self.FK_Card_Payment_Method" FromRole="Payment_Method" ToRole="Card" />
+          <NavigationProperty Name="EFTs" Relationship="Self.FK_EFT_Payment_Method" FromRole="Payment_Method" ToRole="EFT" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Payment__66603565" FromRole="Payment_Method" ToRole="Payment" />
+          <NavigationProperty Name="Paypals" Relationship="Self.FK_Paypal_Payment_Method" FromRole="Payment_Method" ToRole="Paypal" />
+        </EntityType>
+        <EntityType Name="Paypal">
+          <Key>
+            <PropertyRef Name="Paypal_ID" />
+          </Key>
+          <Property Name="Paypal_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaypalID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Payment_Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Payment_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Campaign_ID" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Method_ID" Type="Int32" Nullable="false" />
+          <Property Name="Donor_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Campaign" Relationship="Self.FK_Paypal_Campaign" FromRole="Paypal" ToRole="Campaign" />
+          <NavigationProperty Name="Doner" Relationship="Self.FK_Paypal_Doner" FromRole="Paypal" ToRole="Doner" />
+          <NavigationProperty Name="Payment_Method" Relationship="Self.FK_Paypal_Payment_Method" FromRole="Paypal" ToRole="Payment_Method" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Province_ID" />
+          </Key>
+          <Property Name="Province_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Province_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__City__Province_I__5DCAEF64" FromRole="Province" ToRole="City" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Campaign__Campai__59FA5E80">
+          <End Role="Campaign_Status" Type="Self.Campaign_Status" Multiplicity="0..1" />
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign_Status">
+              <PropertyRef Name="Campaign_Status_ID" />
+            </Principal>
+            <Dependent Role="Campaign">
+              <PropertyRef Name="Campaign_Status_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organiati__Campa__628FA481">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="Organiation" Type="Self.Organiation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Organiation">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Campaig__656C112C">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFT_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="EFT" Type="Self.EFT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="EFT">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paypal_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="Paypal" Type="Self.Paypal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="Campaign_ID" />
+            </Principal>
+            <Dependent Role="Paypal">
+              <PropertyRef Name="Campaign_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_Doner">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Card_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
+          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="Card">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__Province_I__5DCAEF64">
+          <End Role="Province" Type="Self.Province" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Province_ID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="Province_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Doner__City_ID__5EBF139D">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Doner" Type="Self.Doner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="Doner">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Organiati__City___6383C8BA">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Organiation" Type="Self.Organiation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="City_ID" />
+            </Principal>
+            <Dependent Role="Organiation">
+              <PropertyRef Name="City_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Doner_I__6477ECF3">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Doner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFT_Doner">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="1" />
+          <End Role="EFT" Type="Self.EFT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="EFT">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paypal_Doner">
+          <End Role="Doner" Type="Self.Doner" Multiplicity="1" />
+          <End Role="Paypal" Type="Self.Paypal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doner">
+              <PropertyRef Name="Doner_ID" />
+            </Principal>
+            <Dependent Role="Paypal">
+              <PropertyRef Name="Donor_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFT_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
+          <End Role="EFT" Type="Self.EFT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="EFT">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payment__Payment__66603565">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Paypal_Payment_Method">
+          <End Role="Payment_Method" Type="Self.Payment_Method" Multiplicity="1" />
+          <End Role="Paypal" Type="Self.Paypal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Method">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Principal>
+            <Dependent Role="Paypal">
+              <PropertyRef Name="Payment_Method_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DonationsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Campaigns" EntityType="Self.Campaign" />
+          <EntitySet Name="Campaign_Status" EntityType="Self.Campaign_Status" />
+          <EntitySet Name="Cards" EntityType="Self.Card" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Doners" EntityType="Self.Doner" />
+          <EntitySet Name="EFTs" EntityType="Self.EFT" />
+          <EntitySet Name="Organiations" EntityType="Self.Organiation" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Payment_Method" EntityType="Self.Payment_Method" />
+          <EntitySet Name="Paypals" EntityType="Self.Paypal" />
+          <EntitySet Name="Provinces" EntityType="Self.Province" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Campaign__Campai__59FA5E80" Association="Self.FK__Campaign__Campai__59FA5E80">
+            <End Role="Campaign_Status" EntitySet="Campaign_Status" />
+            <End Role="Campaign" EntitySet="Campaigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organiati__Campa__628FA481" Association="Self.FK__Organiati__Campa__628FA481">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="Organiation" EntitySet="Organiations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Campaig__656C112C" Association="Self.FK__Payment__Campaig__656C112C">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_Campaign" Association="Self.FK_Card_Campaign">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="Card" EntitySet="Cards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFT_Campaign" Association="Self.FK_EFT_Campaign">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="EFT" EntitySet="EFTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paypal_Campaign" Association="Self.FK_Paypal_Campaign">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="Paypal" EntitySet="Paypals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_Doner" Association="Self.FK_Card_Doner">
+            <End Role="Doner" EntitySet="Doners" />
+            <End Role="Card" EntitySet="Cards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Card_Payment_Method" Association="Self.FK_Card_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="Card" EntitySet="Cards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__Province_I__5DCAEF64" Association="Self.FK__City__Province_I__5DCAEF64">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Doner__City_ID__5EBF139D" Association="Self.FK__Doner__City_ID__5EBF139D">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Doner" EntitySet="Doners" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Organiati__City___6383C8BA" Association="Self.FK__Organiati__City___6383C8BA">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Organiation" EntitySet="Organiations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Doner_I__6477ECF3" Association="Self.FK__Payment__Doner_I__6477ECF3">
+            <End Role="Doner" EntitySet="Doners" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFT_Doner" Association="Self.FK_EFT_Doner">
+            <End Role="Doner" EntitySet="Doners" />
+            <End Role="EFT" EntitySet="EFTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paypal_Doner" Association="Self.FK_Paypal_Doner">
+            <End Role="Doner" EntitySet="Doners" />
+            <End Role="Paypal" EntitySet="Paypals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFT_Payment_Method" Association="Self.FK_EFT_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="EFT" EntitySet="EFTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payment__Payment__66603565" Association="Self.FK__Payment__Payment__66603565">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Paypal_Payment_Method" Association="Self.FK_Paypal_Payment_Method">
+            <End Role="Payment_Method" EntitySet="Payment_Method" />
+            <End Role="Paypal" EntitySet="Paypals" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DonationsModelStoreContainer" CdmEntityContainer="DonationsEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="DonationsModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DonationsModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DonationsModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DonationsModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DonationsModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaigns">
+            <EntityTypeMapping TypeName="DonationsModel.Campaign">
+              <MappingFragment StoreEntitySet="Campaign">
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+                <ScalarProperty Name="Campaign_Name" ColumnName="Campaign_Name" />
+                <ScalarProperty Name="Campaign_Description" ColumnName="Campaign_Description" />
+                <ScalarProperty Name="Campaign_Start_Date" ColumnName="Campaign_Start_Date" />
+                <ScalarProperty Name="Campaign_End_Date" ColumnName="Campaign_End_Date" />
+                <ScalarProperty Name="Campaign_Goal" ColumnName="Campaign_Goal" />
+                <ScalarProperty Name="Campaign_Status_ID" ColumnName="Campaign_Status_ID" />
+                <ScalarProperty Name="Amount_Received" ColumnName="Amount_Received" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaign_Status">
+            <EntityTypeMapping TypeName="DonationsModel.Campaign_Status">
+              <MappingFragment StoreEntitySet="Campaign_Status">
+                <ScalarProperty Name="Campaign_Status_ID" ColumnName="Campaign_Status_ID" />
+                <ScalarProperty Name="Campaign_Status_Description" ColumnName="Campaign_Status_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cards">
+            <EntityTypeMapping TypeName="DonationsModel.Card">
+              <MappingFragment StoreEntitySet="Card">
+                <ScalarProperty Name="Card_ID" ColumnName="Card_ID" />
+                <ScalarProperty Name="Card_Number" ColumnName="Card_Number" />
+                <ScalarProperty Name="Card_Holder" ColumnName="Card_Holder" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+                <ScalarProperty Name="Payment_Method_ID" ColumnName="Payment_Method_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="DonationsModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doners">
+            <EntityTypeMapping TypeName="DonationsModel.Doner">
+              <MappingFragment StoreEntitySet="Doner">
+                <ScalarProperty Name="Doner_ID" ColumnName="Doner_ID" />
+                <ScalarProperty Name="Doner_Name" ColumnName="Doner_Name" />
+                <ScalarProperty Name="Doner_Surname" ColumnName="Doner_Surname" />
+                <ScalarProperty Name="Doner_Email" ColumnName="Doner_Email" />
+                <ScalarProperty Name="Doner_Cell" ColumnName="Doner_Cell" />
+                <ScalarProperty Name="Doner_Address" ColumnName="Doner_Address" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EFTs">
+            <EntityTypeMapping TypeName="DonationsModel.EFT">
+              <MappingFragment StoreEntitySet="EFT">
+                <ScalarProperty Name="EFT_ID" ColumnName="EFT_ID" />
+                <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+                <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
+                <ScalarProperty Name="Payment_Method_ID" ColumnName="Payment_Method_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+                <ScalarProperty Name="Bank_Acc_Number" ColumnName="Bank_Acc_Number" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organiations">
+            <EntityTypeMapping TypeName="DonationsModel.Organiation">
+              <MappingFragment StoreEntitySet="Organiation">
+                <ScalarProperty Name="Organisation_ID" ColumnName="Organisation_ID" />
+                <ScalarProperty Name="Organisation_Name" ColumnName="Organisation_Name" />
+                <ScalarProperty Name="Organisation_Address" ColumnName="Organisation_Address" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="NGO_Num" ColumnName="NGO_Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="DonationsModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="Payment_ID" ColumnName="Payment_ID" />
+                <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+                <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
+                <ScalarProperty Name="Doner_ID" ColumnName="Doner_ID" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+                <ScalarProperty Name="Payment_Method_ID" ColumnName="Payment_Method_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment_Method">
+            <EntityTypeMapping TypeName="DonationsModel.Payment_Method">
+              <MappingFragment StoreEntitySet="Payment_Method">
+                <ScalarProperty Name="Payment_Method_ID" ColumnName="Payment_Method_ID" />
+                <ScalarProperty Name="Payment_Method_Description" ColumnName="Payment_Method_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paypals">
+            <EntityTypeMapping TypeName="DonationsModel.Paypal">
+              <MappingFragment StoreEntitySet="Paypal">
+                <ScalarProperty Name="Paypal_ID" ColumnName="Paypal_ID" />
+                <ScalarProperty Name="PaypalID" ColumnName="PaypalID" />
+                <ScalarProperty Name="Payment_Amount" ColumnName="Payment_Amount" />
+                <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
+                <ScalarProperty Name="Campaign_ID" ColumnName="Campaign_ID" />
+                <ScalarProperty Name="Payment_Method_ID" ColumnName="Payment_Method_ID" />
+                <ScalarProperty Name="Donor_ID" ColumnName="Donor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="DonationsModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+                <ScalarProperty Name="Province_Name" ColumnName="Province_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DonationsModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
